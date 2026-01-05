@@ -1,0 +1,53 @@
+// 添加：多个ConstDef的常量声明
+const int BASE = 10, MULTIPLIER = 2, OFFSET = 5;  // 新增：多个ConstDef
+const int globalConstArr[2] = {100, 200};  // 新增：全局常量数组，覆盖一维数组情况
+const int partialInitArr[3] = {50};        // 新增：部分初始化数组，覆盖ConstInitVal的花括号内部分元素情况
+const int emptyInitArr[2] = {};            // 新增：空初始化数组，覆盖ConstInitVal的花括号内无元素情况
+
+int sumarr(int n, int a[]) {
+    int s = 0;
+    int i;  // 变量声明移到函数作用域
+    for (i = 0; i < n; i = i + 1) 
+        s = s + a[i];
+    return s;
+}
+
+int main() {
+    printf("23371328\n");  // 学号输出
+    int n = getint();
+    int a[5] = {n, n + BASE, n + MULTIPLIER, n + OFFSET, n + BASE + MULTIPLIER};
+    
+    // 保持10条printf语句
+    printf("%d\n", a[0]);
+    printf("%d\n", a[4]);
+    printf("%d\n", sumarr(5, a));
+    printf("%d\n", a[2] * MULTIPLIER);  // 修改：使用MULTIPLIER常量
+    printf("%d\n", n);
+    printf("%d\n", a[1] - a[0]);
+    printf("%d\n", a[3] / 2);
+    printf("%d\n", BASE);               // 修改：输出BASE常量值
+
+
+    const int constArr[2] = {5, 10};
+    a[0] = constArr[0]; // 数组元素赋值
+
+    // 新增：未初始化的数组定义
+    int uninitArr[3];  // 未初始化的数组定义 - 覆盖 VarDef → Ident '[' ConstExp ']'
+    uninitArr[0] = n + 1;
+    uninitArr[1] = n + 2;
+    uninitArr[2] = n + 3;
+
+    // 替换原来的两条printf，保持总数10条
+    printf("%d\n", uninitArr[1]);  // 输出未初始化数组的第二个元素
+    printf("%d\n", uninitArr[2]);  // 输出未初始化数组的第三个元素
+
+
+    //printf("%d\n", a[0]); // 增加一条printf
+    //printf("%d\n", globalConstArr[0]); // 修改：输出全局常量数组元素，替换原来的a[0]
+
+    // 修改：使用新添加的常量数组元素
+    //printf("%d\n", partialInitArr[1]);  // 应该输出0（部分初始化的第二个元素）
+    //printf("%d\n", emptyInitArr[0]);    // 应该输出0（空初始化的第一个元素）
+
+    return 0;
+}

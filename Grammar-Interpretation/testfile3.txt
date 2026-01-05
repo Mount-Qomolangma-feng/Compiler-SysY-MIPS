@@ -1,0 +1,47 @@
+int globalArr[3] = {1, 2, 3}; // 全局数组变量
+
+void dump(int b[], int n) {
+    printf("%d\n", b[0]);
+    printf("%d\n", b[1]);
+    return;
+}
+
+int sum2(int x, int y) {
+    printf("%d\n", x);
+    printf("%d\n", y);
+    return x + y;
+}
+
+int main() {
+    printf("23371328\n");
+    int arr[2] = {3, 4};
+
+
+    // 新增：空语句
+    ;  // 空语句，不执行任何操作
+
+    printf("%d\n", sum2(arr[0], arr[1]));
+    dump(arr, 2);
+
+
+    // 修改：使用括号表达式
+    printf("%d\n", (arr[0] + arr[1]) * 2);  // 括号表达式
+
+
+    // 新增：另一个括号表达式
+    printf("%d\n", (globalArr[1] - globalArr[0]) + 5);  // 括号表达式
+
+
+    // 修改：使用一元正号运算符
+    printf("%d\n", +globalArr[2]);  // 一元正号表达式
+
+
+    //printf("%d\n", arr[0] + arr[1]);
+    //printf("%d\n", arr[1] - arr[0]);
+    
+    //printf("%d\n", globalArr[1] - globalArr[0]);
+
+    printf("%d\n", 999);
+    //printf("%d\n", 0);
+    return 0;
+}

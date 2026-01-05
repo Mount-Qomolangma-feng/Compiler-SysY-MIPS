@@ -1,0 +1,45 @@
+int global = 1;
+
+int inc_static() {
+    static int s = 0;
+    static int t = 5, u = 10;  // 新增：多个静态变量声明
+    s = s + 1;
+    t = t + 2;  // 使用第二个静态变量
+    u = u - 1;  // 使用第三个静态变量
+    return s + t + u;  // 修改返回值以使用多个静态变量
+}
+
+// 新增：单参数函数定义，覆盖单个函数形参
+int single_param(int x) {
+    return x * 2;
+}
+
+
+int main() {
+    printf("23371328\n");
+    const int A = 5;
+
+
+    // 修改：单个变量声明改为多个变量声明
+    int x = A, y = 10, z = x + y;  // 新增：多个VarDef
+
+
+    printf("%d\n", x);
+    printf("%d\n", inc_static());
+    printf("%d\n", inc_static());
+    printf("%d\n", x + A);
+    printf("%d\n", 2 * (A + 1));
+
+
+    if (y > x) {
+        printf("Condition true\n");  // 无Exp的printf
+    } else {
+        printf("%d\n", 0);
+    }
+
+    printf("%d\n", global);
+    printf("%d\n", -A);
+    printf("%d\n", single_param(x));  // 新增：调用单参数函数
+    
+    return 0;
+}

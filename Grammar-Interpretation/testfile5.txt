@@ -1,0 +1,39 @@
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    printf("23371328\n");  // 学号输出
+
+
+    // 新增：无初始值的变量声明
+    int uninitializedVar;           // 单个无初始值变量
+    int multipleUninit, anotherUninit; // 多个无初始值变量
+
+    int a = 7;
+    int b = 8;
+    int i, j, k;  // 新增多个变量用于for循环多个初始化
+
+
+    // 在使用前为无初始值变量赋值
+    uninitializedVar = 100;         // 为单个无初始值变量赋值
+    multipleUninit = a * 2;         // 使用已有变量计算赋值
+    anotherUninit = uninitializedVar + multipleUninit; // 使用其他变量计算赋值
+        
+    printf("%d\n", add(a, b));  // 函数调用
+    printf("%d\n", a * b);      // 乘法运算
+    printf("%d\n", a % b);      // 取模运算
+    
+    // 修改：for循环使用多个初始化
+    for (i = 0, j = 5, k = 10; i < 2; i = i + 1) {  // 多个初始化
+        printf("%d\n", i + j + k);  // 使用多个初始化变量
+    }
+    
+    printf("%d\n", a - b);  // 减法
+    printf("%d\n", uninitializedVar); // 替换：使用无初始值变量
+    printf("%d\n", multipleUninit); // 替换：使用无初始值变量
+    printf("%d\n", anotherUninit);  // 替换：使用无初始值变量
+
+
+    return 0;
+}

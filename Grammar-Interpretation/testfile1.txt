@@ -1,0 +1,73 @@
+const int C1 = 2;
+int arr[3] = {1, 2, 3};
+int g = 0;
+
+int side() {
+    g = g + 1;
+    return 1;
+}
+
+// 修改：重新设计test2函数逻辑以确保!=能被覆盖
+int test2(int a, int b) {
+    if (a == b) {
+        return 0;
+    }
+    // 专门测试!=
+    if (a != b) {
+        return 3;  // 这个一定会执行当a != b时
+    }
+    if (a <= b) {
+        return 1;
+    }
+    if (a >= b) {
+        return 2;
+    }
+    return 4;
+}
+
+int test(int a, int b[]) {
+    if (a > 0 && b[0] == 1) return 10;
+    if (a == 0 || side()) return 20;
+    return 0;
+}
+
+int main() {
+    printf("23371328\n");
+    printf("%d\n", C1);
+    printf("%d\n", arr[0]);
+    printf("%d\n", test(1, arr));
+    printf("%d\n", g);
+    printf("%d\n", test(0, arr));
+    //printf("%d\n", g);
+
+
+    // 修改：使用一元表达式
+    printf("%d\n", -(arr[1] + arr[2]));  // 一元负号表达式
+
+    // 修改：使用新的test2函数
+    printf("%d\n", test2(arr[0], arr[1]));  // 使用<=和>=
+
+
+    //printf("%d\n", 100 / 3);
+
+    
+    // 新增：一元表达式在条件中
+    int flag = 0;
+    if (!flag) {  // 一元逻辑非表达式
+        printf("%d\n", 1);
+    } else {
+        printf("%d\n", 0);
+    }
+    
+
+    // 修改：在条件中使用<=
+    if (arr[2] <= 3) {  // 使用<=关系运算符
+        printf("%d\n", 1);
+    } else {
+        printf("%d\n", 0);
+    }
+
+
+
+    return 0;
+}
